@@ -1,22 +1,33 @@
-# Red de Hopfield - Arcade Clásico / Pac-Man (10x10)
+# 👾 Hopfield Arcade 10x10
 
-Proyecto en Java que usa una Red Neuronal de Hopfield para memorizar y reconocer figuras del arcade clásico (Pac-Man) en cuadrículas de 10x10 píxeles.
+Red neuronal de Hopfield programada en Java que aprende 5 figuras del arcade clásico y las reconoce aunque la imagen de entrada venga con píxeles dañados.
 
-Hecho sin librerías externas, usando solo arreglos básicos y ciclos for/while.
+> Sin numpy, TensorFlow ni ninguna librería: solo arrays, `for`, `while` e `if/else`.
 
-## ¿Qué hay en este proyecto?
+## Figuras que memoriza
 
-- **MImage.java**: El código principal que calcula la red neuronal.
-- **datasets/**: Carpeta con los dibujos hechos con ceros y unos:
-  - **pacman.txt, fantasma.txt, cereza.txt, corazon.txt, llave.txt**: Las 5 figuras que la red aprende de memoria.
-  - **entrada.txt**: La figura de prueba que le damos a la red para ver si la adivina.
-  - **resultado.txt**: Donde la red guarda la figura limpia y restaurada cuando termina.
+| # | Figura | Archivo |
+|---|--------|---------|
+| 1 | Pac-Man | `datasets/pacman.txt` |
+| 2 | Fantasma | `datasets/fantasma.txt` |
+| 3 | Cereza | `datasets/cereza.txt` |
+| 4 | Corazón | `datasets/corazon.txt` |
+| 5 | Llave | `datasets/llave.txt` |
 
-## Cómo correr el proyecto
+Cada figura es una cuadrícula de 10x10 escrita con `1` (píxel pintado) y `0` (píxel vacío).
 
-En la terminal escribe:
+## Archivos de prueba
 
-```
+- `datasets/entrada.txt` → figura con ruido que la red tiene que adivinar.
+- `datasets/resultado.txt` → figura ya corregida que la red guarda al terminar.
+
+## Ejecutar
+
+```bash
 javac MImage.java
 java MImage
 ```
+
+El programa muestra las 5 figuras, la entrada con ruido, cada iteración de la red y al final la figura reconocida con su porcentaje de coincidencia.
+
+Para probar otra figura solo edita `entrada.txt`.
